@@ -15,9 +15,9 @@ runs:
       with:
         path: |
           **/node_modules
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        key: ${{ runner.os }}-node-${{ hashFiles('.nvmrc') }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
-          ${{ runner.os }}-yarn-
+          ${{ runner.os }}-node-${{ hashFiles('.nvmrc') }}-yarn-
 
     - name: Install dependencies
       if: steps.yarn-cache.outputs.cache-hit != 'true'
